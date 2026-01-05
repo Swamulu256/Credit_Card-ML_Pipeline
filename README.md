@@ -216,4 +216,6 @@ Steps:
 > “This project implements an end-to-end ML pipeline for credit card fraud detection including preprocessing, model training, evaluation, and ROC curve visualization.”
 
 ---
+📄 License
 
+This project is licensed under the MIT License.
