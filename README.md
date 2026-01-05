@@ -1,221 +1,234 @@
 # Credit_Card-ML_Pipeline
 
-# 💳 Credit Card Fraud Detection – ML Pipeline
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Credit Card Fraud Detection | ML Pipeline</title>
 
----
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f6f8;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
 
-##  Project Overview
+        header {
+            background: #0b5ed7;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
 
-This project implements a **Machine Learning pipeline** to detect **fraudulent credit card transactions**.
+        section {
+            background: white;
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 900px;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
 
-The goal is to take raw transaction data, process it step by step, train ML models, evaluate their performance, and visualize results such as the **ROC Curve**.
+        h2 {
+            color: #0b5ed7;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 5px;
+        }
 
+        ul {
+            margin-left: 20px;
+        }
 
----
+        code, pre {
+            background: #f1f1f1;
+            padding: 10px;
+            display: block;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
 
-## 🤖 Models Implemented
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
 
-The following Machine Learning models are used:
+        table, th, td {
+            border: 1px solid #ccc;
+        }
 
-* **Logistic Regression** (baseline model)
-* **Random Forest Classifier** (main model)
+        th {
+            background: #e9ecef;
+        }
 
----
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
 
-##  Project Structure
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #222;
+            color: white;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
 
-```
+<header>
+    <h1>💳 Credit Card Fraud Detection</h1>
+    <p>Machine Learning Pipeline Project</p>
+</header>
+
+<section>
+    <h2>📌 Project Overview</h2>
+    <p>
+        This project implements an end-to-end <b>Machine Learning pipeline</b> to detect
+        fraudulent credit card transactions. The system loads transaction data,
+        preprocesses it, trains ML models, evaluates performance, and visualizes results
+        using an ROC curve.
+    </p>
+</section>
+
+<section>
+    <h2>🤖 Models Implemented</h2>
+    <ul>
+        <li>Logistic Regression (Baseline Model)</li>
+        <li>Random Forest Classifier</li>
+    </ul>
+</section>
+
+<section>
+    <h2>📂 Project Structure</h2>
+<pre>
 Credit_Card_ML_Pipeline/
-│
 ├── data/
 │   └── creditcard.csv
-│
 ├── src/
-│   ├── data_pipeline.py      # Data loading & preprocessing
-│   ├── train_model.py        # Model training
-│   ├── evaluate_model.py     # Model evaluation
-│   └── utils.py              # Helper functions
-│
+│   ├── data_pipeline.py
+│   ├── train_model.py
+│   ├── evaluate_model.py
 ├── models/
 │   └── fraud_model.pkl
-│
 ├── plots/
 │   └── roc_curve.png
-│
+├── main.py
 ├── requirements.txt
-├── README.md
-└── main.py
-```
+└── README.md
+</pre>
+</section>
 
----
+<section>
+    <h2>⚙️ How the Code Works</h2>
+    <ul>
+        <li>Load credit card transaction dataset</li>
+        <li>Clean and preprocess data</li>
+        <li>Scale features using StandardScaler</li>
+        <li>Handle imbalanced data using SMOTE</li>
+        <li>Train ML models</li>
+        <li>Evaluate using ROC-AUC and other metrics</li>
+    </ul>
+</section>
 
-## ⚙️ How the Code Works (Step-by-Step)
+<section>
+    <h2>🔁 Credit Card Initialization & Preprocessing</h2>
+    <p>
+        The dataset is loaded from a CSV file using Pandas. Duplicate records are removed,
+        features and target labels are separated, and numerical values are scaled.
+    </p>
+</section>
 
-### 1️ Credit Card Initialization (Data Loading)
+<section>
+    <h2>🏋️ Model Training</h2>
+    <p>
+        Models are trained using training data. Random Forest is used as the primary model
+        because it performs well on imbalanced datasets.
+    </p>
+</section>
 
-* Loads the credit card dataset from CSV file
-* Uses Pandas to read and inspect data
+<section>
+    <h2>📈 ROC Curve Calculation & Final Plot</h2>
+    <p>
+        The ROC curve is calculated using predicted probabilities to evaluate model
+        performance. The final ROC curve is plotted and saved as an image.
+    </p>
+</section>
 
-```python
-pd.read_csv("creditcard.csv")
-```
-
----
-
-### 2️⃣ Data Preprocessing (ML Pipeline)
-
-Performed inside `data_pipeline.py`:
-
-* Removes duplicate records
-* Separates features (X) and target variable (Class)
-* Scales numerical features using **StandardScaler**
-* Handles imbalanced data using **SMOTE**
-* Splits data into training and testing sets
-
-This prepares clean and balanced data for model training.
-
----
-
-### 3️⃣ Model Training Methods
-
-Implemented in `train_model.py`:
-
-* Trains Logistic Regression and Random Forest models
-* Uses training data to learn fraud patterns
-* Saves trained model using `joblib`
-
-```python
-model.fit(X_train, y_train)
-```
-
----
-
-### 4️⃣ Model Evaluation
-
-Implemented in `evaluate_model.py`:
-
-* Predicts fraud on test data
-* Calculates:
-
-  * Accuracy
-  * Precision
-  * Recall
-  * F1-score
-  * ROC-AUC score
-
-These metrics are important because fraud datasets are **highly imbalanced**.
-
----
-
-### 5️⃣ ROC Curve Calculation
-
-* Uses predicted probabilities
-* Calculates False Positive Rate (FPR) and True Positive Rate (TPR)
-
-```python
-roc_curve(y_test, y_pred_proba)
-```
-
----
-
-### 6️⃣ Final Plot
-
-* Plots the **ROC Curve** using Matplotlib
-* Saves the plot as an image file
-
-```python
-plt.plot(fpr, tpr)
-```
-
-This helps visualize how well the model distinguishes fraud vs non-fraud transactions.
-
----
-
-## ▶️ How to Run the Project
-
-### Step 1: Clone the Repository
-
-```bash
+<section>
+    <h2>▶️ How to Run the Project</h2>
+<pre>
 git clone https://github.com/your-username/Credit_Card_ML_Pipeline.git
 cd Credit_Card_ML_Pipeline
-```
-
-### Step 2: Install Requirements
-
-```bash
 pip install -r requirements.txt
-```
-
-### Step 3: Run the Pipeline
-
-```bash
 python main.py
-```
+</pre>
+</section>
 
-This will:
+<section>
+    <h2>📊 Results</h2>
+    <table>
+        <tr>
+            <th>Model</th>
+            <th>Precision</th>
+            <th>Recall</th>
+            <th>ROC-AUC</th>
+        </tr>
+        <tr>
+            <td>Logistic Regression</td>
+            <td>0.91</td>
+            <td>0.84</td>
+            <td>0.98</td>
+        </tr>
+        <tr>
+            <td>Random Forest</td>
+            <td>0.95</td>
+            <td>0.89</td>
+            <td>0.99</td>
+        </tr>
+    </table>
+</section>
 
-* Load data
-* Preprocess data
-* Train the model
-* Evaluate performance
-* Generate ROC curve plot
+<section>
+    <h2>📦 Requirements</h2>
+    <ul>
+        <li>Python 3.x</li>
+        <li>Pandas</li>
+        <li>NumPy</li>
+        <li>Scikit-learn</li>
+        <li>Imbalanced-learn</li>
+        <li>Matplotlib</li>
+        <li>Joblib</li>
+    </ul>
+</section>
 
----
+<section>
+    <h2>📝 Notes</h2>
+    <ul>
+        <li>Dataset is highly imbalanced</li>
+        <li>ROC-AUC and Recall are key metrics</li>
+        <li>Accuracy alone is not reliable</li>
+    </ul>
+</section>
 
-##  Results
+<section>
+    <h2>🤝 Contributing</h2>
+    <p>
+        Contributions are welcome! Fork the repository, create a branch,
+        make your changes, and submit a pull request.
+    </p>
+</section>
 
-* Random Forest performs better than Logistic Regression
-* High ROC-AUC score (> 0.98)
-* Good recall for fraud detection
+<footer>
+    <p>⭐ Credit Card Fraud Detection ML Pipeline | Fresher-Friendly Project</p>
+</footer>
 
-| Model               | Precision | Recall | ROC-AUC |
-| ------------------- | --------- | ------ | ------- |
-| Logistic Regression | 0.91      | 0.84   | 0.98    |
-| Random Forest       | 0.95      | 0.89   | 0.99    |
+</body>
+</html>
 
----
 
-##  Requirements
-
-All required libraries are listed in `requirements.txt`:
-
-```
-pandas
-numpy
-scikit-learn
-imbalanced-learn
-matplotlib
-seaborn
-joblib
-```
-
----
-
-##  Notes
-
-* Dataset is highly imbalanced
-* Accuracy alone is not reliable
-* Focus is on Recall and ROC-AUC
-* Project follows standard ML pipeline structure
-
----
-
-## Contributing
-
-Contributions are welcome!
-
-Steps:
-
-1. Fork the repository
-2. Create a new branch
-3. Make changes and commit
-4. Open a pull request
-
----
-
-> “This project implements an end-to-end ML pipeline for credit card fraud detection including preprocessing, model training, evaluation, and ROC curve visualization.”
-
----
-📄 License
-
-This project is licensed under the MIT License.
