@@ -1,0 +1,10 @@
+2026-01-05 12:16:21,563 - INFO - =========KNN===========
+2026-01-05 12:16:45,587 - INFO - KNN Test Accuracy : 0.9988
+2026-01-05 12:16:45,587 - INFO - =========NB===========
+2026-01-05 12:16:45,761 - INFO - Naive Bayes Test Accuracy : 1.0
+2026-01-05 12:16:45,761 - INFO - =========LR===========
+2026-01-05 12:16:46,308 - INFO - LogisticRegression Test Accuracy : 1.0
+2026-01-05 12:16:46,308 - INFO - =========DT===========
+2026-01-05 12:16:46,798 - INFO - DecisionTreeClassifier Test Accuracy : 1.0
+2026-01-05 12:16:46,798 - INFO - =========RF===========
+2026-01-05 12:16:48,836 - INFO - RandomForestClassifier Test Accuracy : 0.9999333333333333

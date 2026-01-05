@@ -1,0 +1,14 @@
+2026-01-05 12:16:20,007 - INFO - Index(['NPA Status', 'RevolvingUtilizationOfUnsecuredLines', 'age',
+       'NumberOfTime30-59DaysPastDueNotWorse', 'DebtRatio',
+       'NumberOfOpenCreditLinesAndLoans', 'NumberOfTimes90DaysLate',
+       'NumberRealEstateLoansOrLines', 'NumberOfTime60-89DaysPastDueNotWorse',
+       'MonthlyIncome_replaced', 'NumberOfDependents_replaced'],
+      dtype='object') -> (120000, 11)
+2026-01-05 12:16:20,007 - INFO - Index(['NPA Status', 'RevolvingUtilizationOfUnsecuredLines', 'age',
+       'NumberOfTime30-59DaysPastDueNotWorse', 'DebtRatio',
+       'NumberOfOpenCreditLinesAndLoans', 'NumberOfTimes90DaysLate',
+       'NumberRealEstateLoansOrLines', 'NumberOfTime60-89DaysPastDueNotWorse',
+       'MonthlyIncome_replaced', 'NumberOfDependents_replaced'],
+      dtype='object') -> (30000, 11)
+2026-01-05 12:16:20,051 - INFO - Columns we need to remove from constant technique : Index([], dtype='object')
+2026-01-05 12:16:20,062 - INFO - Error in Line no : 30: due to name 'reg_quansi' is not defined
